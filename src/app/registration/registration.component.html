@@ -1,0 +1,16 @@
+<div>
+    <h2>Registration</h2>
+    <form (ngSubmit)="register()">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" [(ngModel)]="user.username" required>
+  
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="user.password" required>
+  
+      <button type="submit" [disabled]="!user.username || !user.password">Register</button>
+    </form>
+  
+    <div *ngIf="registrationError" class="error-message">
+      {{ registrationError }}
+    </div>
+  </div>

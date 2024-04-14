@@ -1,0 +1,63 @@
+.matched-user-list {
+    //margin: 20px;
+  }
+  
+  .matched-user-list h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .user-grid {
+    display: grid;
+    //grid-gap: 20px;
+  }
+  
+  .user-box {
+    width: calc(100% - 40px); /* Adjust padding */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    //margin-bottom: 20px;
+  }
+  
+  .user-box:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .username {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .last-message {
+    font-size: 1em;
+    color: #666;
+  }
+  
+  .user-box button {
+    padding: 8px 16px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    margin:10px;
+    cursor: pointer;
+  }
+  
+  .user-box button:hover {
+    background-color: #452206;
+  }
+  
+
+  .unread-message {
+    font-weight: bold; /* Make the unread message bold */
+    color: #392ced; /* Set the color of unread message to a distinctive color */
+  }

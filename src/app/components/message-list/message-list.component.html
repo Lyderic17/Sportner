@@ -1,0 +1,19 @@
+
+<div class="matched-user-list">
+  <h2>Matched Users:</h2>
+  <div class="user-grid">
+    <div *ngFor="let user of matchedUsers" class="user-box" (click)="navigateToChatRoom(user._id)">
+      <div class="user-info">
+        <div class="username">{{ user.username }}</div>
+        <div class="last-message" [ngClass]="{
+          'unread-message': user.lastMessage && user.lastMessage.recipientId == this.userId && !isMessageSeen(user.lastMessage, user.lastMessage.recipientId)
+        }"> {{
+          user.lastMessage ? 
+          (user.lastMessage.senderId === this.userId ? 'Vous: ' : user.username + ': ') + user.lastMessage.message 
+          : ''
+        }}</div>
+      </div>
+      <button>Chat</button>
+    </div>
+  </div>
+</div>

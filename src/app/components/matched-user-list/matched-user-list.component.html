@@ -1,0 +1,10 @@
+<div class="matched-user-list">
+    <h2>Matched Users : </h2>
+    <ul>
+      <li *ngFor="let user of matchedUsers">
+        <div>{{ user.username }}</div>
+      
+        <button (click)="navigateToChatRoom(user._id)">Chat</button>
+      </li>
+    </ul>
+  </div>

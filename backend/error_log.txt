@@ -1,0 +1,2 @@
+Error during prediction: [Errno 2] No such file or directory: 'C:Users\\lyderGridSearchmodel.joblib'
+Error during prediction: [Errno 2] No such file or directory: 'C:Users\\lyderGridSearchmodel.joblib'

@@ -1,0 +1,109 @@
+<div  class="user-profile-container">
+<div *ngIf="userProfile" class="form-container">
+    <h2>User Profile</h2>
+    <form #updatedeleteForm="ngForm" enctype="multipart/form-data">
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" [(ngModel)]="userProfile.username" disabled>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" [(ngModel)]="userProfile.email" disabled>
+      </div>
+      <div>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" [(ngModel)]="userProfile.age">
+      </div>
+      <div>
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" [(ngModel)]="userProfile.location">
+      </div>
+      <div>
+        <label for="sportsInterests">Sports Interests:</label>
+        <div class="interests-container">
+          <mat-form-field>
+            <input type="text" name="sportInterests" placeholder="Select Sport" aria-label="Select Sport" matInput [matAutocomplete]="auto" [formControl]="sportControl">
+            <mat-autocomplete #auto="matAutocomplete"  (optionSelected)="onSportSelected($event)">
+              <mat-option *ngFor="let sport of filteredSports | async" [value]="sport">
+                {{ sport }}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+          <select id="levels" name="levels" [(ngModel)]="userProfile.level">
+            <option value="" disabled selected>Select Level</option>
+            <option *ngFor="let level of levels" [value]="level">{{ level }}</option>
+          </select>
+          <button type="button" (click)="addSportInterest()">Add</button>
+        </div>
+        <div class="interests-list">
+          <div *ngFor="let interest of userProfile.sportsInterests; let i = index" class="badge">
+            <span>{{ interest.sport }} - {{ interest.level }}</span>
+            <button type="button" (click)="removeSportInterest(i)">&#10006;</button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <label for="bio">Bio:</label>
+        <textarea id="bio" name="bio" [(ngModel)]="userProfile.bio"></textarea>
+      </div>
+
+      <ng-container *ngIf="userProfile.profilePicture">
+        <img height="300" width="400" [src]="getImageUrl(userProfile.profilePicture)" alt="Profile Picture">
+      </ng-container>
+      <div>
+        <label for="profilePicture">Profile Picture: {{ userProfile.profilePicture}}</label>
+        <input type="file" id="profilePicture" name="profilePicture" (change)="onFileSelected($event)">
+      </div>
+      <button type="button" (click)="updateUserProfile()">Update Profile</button>
+      <button type="button" (click)="deleteUserProfile()">Delete Profile</button>
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    </form>
+  </div>
+  
+  <div *ngIf="!userProfile" class="form-container">
+    <h2>Create User Profile</h2>
+    <form #createForm="ngForm" enctype="multipart/form-data">
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" [(ngModel)]="profileData.username">
+      </div>
+      <div>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" [(ngModel)]="profileData.age">
+      </div>
+      <div>
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" [(ngModel)]="profileData.location">
+      </div>
+      <div>
+        <label for="sportsInterests">Sports Interests:</label>
+        <div>
+            <select id="sportsInterests" name="sportsInterests" [(ngModel)]="profileData.sportsInterests">
+                <option *ngFor="let sport of sports" [value]="sport">{{ sport }}</option>
+            </select>
+            <select id="levels" name="levels" [(ngModel)]="profileData.levels">
+                <option *ngFor="let level of levels" [value]="level">{{ level }}</option>
+            </select>
+            <button type="button" (click)="addSportInterest()">Add</button>
+        </div>
+        <div>
+            <div *ngFor="let interest of profileData.sportsInterests; let i = index" class="badge">
+                <span>{{ interest }}</span>
+                <button type="button" (click)="removeSportInterest(i)">Remove</button>
+            </div>
+        </div>
+    </div>
+      <div>
+        <label for="bio">Bio:</label>
+        <textarea id="bio" name="bio" [(ngModel)]="profileData.bio"></textarea>
+      </div>
+      <div>
+        <label for="profilePicture">Profile Picture:</label>
+        <input type="file" id="profilePicture" (change)="onFileSelected($event)">
+      </div>
+      <button type="button" (click)="createUserProfile()">Create Profile</button>
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    </form>
+  </div>
+
+</div>

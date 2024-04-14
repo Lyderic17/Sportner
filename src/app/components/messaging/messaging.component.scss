@@ -1,0 +1,90 @@
+/* messaging.component.css */
+
+.chat-container {
+  //display: flex;
+  flex-direction: column;
+  
+
+}
+
+.messages-container {
+  flex: 1;
+  height: 1000px; /* Set a fixed height */
+  overflow-y: auto; /* Enable vertical scrolling if needed */
+  padding: 10px;
+  display:flex;
+  flex-direction:column;
+}
+
+.message {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.sent {
+  align-self: flex-end;
+  background-color: #007bff;
+  color: #fff;
+  text-align: right; /* Align text to the right */
+  margin-left: 50px; /* Add margin on the left for sent messages */
+  display: inline-block; /* Allow container to adjust its width based on content */
+  max-width: 80%; /* Limit the maximum width of the container */
+}
+
+.received {
+  align-self: flex-start;
+  background-color: #f2f2f2;
+  color: #333;
+  margin-right: 50px; /* Add margin on the right for received messages */
+  display: inline-block; /* Allow container to adjust its width based on content */
+  max-width: 80%; /* Limit the maximum width of the container */
+}
+
+.message p {
+  margin: 0;
+}
+
+.message .time {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.input-container {
+  position: fixed; /* Make the input container fixed */
+  bottom: 0; /* Position it at the bottom of the page */
+  left: 0; /* Position it at the left edge of the page */
+  width: 100%; /* Take the full width of the page */
+  padding: 10px;
+  background-color: #fff; /* Optional: Add background color */
+  z-index: 999; /* Optional: Set a higher z-index to ensure it appears on top of other elements */
+}
+
+.input-container input {
+  flex: 1;
+  margin-right: 10px;
+  padding: 12px;
+  border: 1px solid #787575;
+  border-radius: 20px;
+  width: calc(100% - 100px);
+}
+
+.input-container button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.input-container button:hover {
+  background-color: #452206;
+}
+
+.recipient-name {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 10px; /* Adjust spacing as needed */
+}

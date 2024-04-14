@@ -1,0 +1,27 @@
+<div class="header">
+  <button mat-icon-button class="menu-button" (click)="toggleSidenav()">
+    <fa-icon [icon]="faBars"></fa-icon>
+  </button>
+  <a mat-list-item routerLink="/profile">
+    <fa-icon [icon]="faHome"></fa-icon> <!-- Ajout de l'icône Home -->
+
+  </a>
+  <a mat-list-item routerLink="/swiping">
+    <fa-icon [icon]="faPlayCircle"></fa-icon> <!-- Ajout de l'icône pour Start Swiping -->
+
+  </a>
+  <a mat-list-item routerLink="/message-rooms">
+    <fa-icon [icon]="faEnvelope"></fa-icon> <!-- Ajout de l'icône pour les messages -->
+
+  </a>
+  <h1>Sportner</h1>
+  <div class="account-info" *ngIf="isLoggedIn">
+
+    <p>Welcome, <span class="username">{{ username }}!</span></p>
+    <button mat-raised-button class="logout-button" (click)="logout()">Logout</button>
+  </div>
+  <div class="account-info" *ngIf="!isLoggedIn">
+    <button mat-raised-button mat-button class="login-button" routerLink="/login">Login</button>
+    <button mat-raised-button mat-button class="register-button" routerLink="/register">Register</button>
+  </div>
+</div>

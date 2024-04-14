@@ -1,0 +1,32 @@
+// Update the template to display statistics
+<div>
+  <h2>Player Dashboard</h2>
+  <div *ngIf="playerData && playerData.length > 0">
+    <!-- Display player data -->
+    <div *ngFor="let player of playerData; let i = index">
+      <img [src]="player.photo" alt="{{ player.name }} Photo" width="100" height="100">
+      <p>Player Name: {{ player.name }}</p>
+      <p>Player Age: {{ player.age }}</p>
+      <p>Player Nationality: {{ player.nationality }}</p>
+
+      <!-- Display statistics for each player -->
+      <div *ngIf="playerStats && playerStats[i] && playerStats[i].length > 0">
+        <h3>Statistics</h3>
+        <div *ngFor="let stat of playerStats[i]">
+          <h4>{{ stat.league.name }}</h4>
+          <p>Total Goals: {{ stat.goals.total }}</p>
+          <p>Assists: {{ stat.goals.assists }}</p>
+          <p>Yellow Cards: {{ stat.cards.yellow }}</p>
+          <p>Minutes Played: {{ stat.games.minutes }}</p>
+          <!-- Add more statistics as needed -->
+        </div>
+      </div>
+
+      <hr /> <!-- Add a horizontal line between players for better separation -->
+    </div>
+  </div>
+
+  <div *ngIf="!playerData || playerData.length === 0">
+    <p>No player data available</p>
+  </div>
+</div>

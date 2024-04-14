@@ -1,0 +1,43 @@
+<div class="notifications-container">
+  <div *ngFor="let notification of notifications" class="notification" [ngClass]="{ 'read': notification.read }">
+    <div class="notification-info">
+      <p>{{ notification.type | titlecase }} Received</p>
+      <p class="timestamp">{{ notification.createdAt | date: 'medium' }}</p>
+    </div>
+    <div class="notification-actions">
+      <button class="mark-read-btn" *ngIf="!notification.read" (click)="markAsRead(notification._id)">Mark as Read</button>
+      <button class="delete-btn" (click)="deleteNotification(notification._id)">Delete</button>
+    </div>
+  </div>
+</div>
+
+<div class="header-container">
+  <div class="sport-filter-container" #sportFilterContainer>
+    <div class="sport-filter" *ngFor="let sport of allSports" (click)="filterProfilesBySport(sport)">
+      {{ sport }}
+    </div>
+  </div>
+</div>
+<div class="swiping-container">
+    <div class="profile-card" *ngIf="profilesToSwipe.length > 0 && currentProfileIndex < profilesToSwipe.length">
+      <div class="profile-info">
+        <h2>{{ profilesToSwipe[currentProfileIndex].username }}</h2>
+        <p>Age: {{ profilesToSwipe[currentProfileIndex].age }}</p>
+        <p>Location: {{ profilesToSwipe[currentProfileIndex].location }}</p>
+        <p>Bio: {{ profilesToSwipe[currentProfileIndex].bio }}</p>
+        <p>{{ calculateDistance(profilesToSwipe[currentProfileIndex].latitude, profilesToSwipe[currentProfileIndex].longitude, userLocation?.latitude!, userLocation?.longitude!) }} km away</p>
+      </div>
+      
+      <div class="profile-image">
+        <img [src]="profilesToSwipe[currentProfileIndex].profilePicture" alt="Profile Picture">
+      </div>
+  
+      <div class="action-buttons">
+        <button class="like-button" (click)="likeProfile()">Like</button>
+        <button class="dislike-button" (click)="dislikeProfile()">Dislike</button>
+      </div>
+    </div>
+    <div *ngIf="profilesToSwipe.length === 0 || currentProfileIndex >= profilesToSwipe.length" class="no-profiles">
+      <p>No more profiles to swipe!</p>
+    </div>
+</div>
