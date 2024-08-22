@@ -1,0 +1,17 @@
+<!-- login.component.html -->
+<div class="login-container">
+    <h2>Login</h2>
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+    <form (ngSubmit)="login()">
+      <label for="email">email:</label>
+      <input type="text" id="email" name="email" [(ngModel)]="credentials.email" required>
+  
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="credentials.password" required>
+  
+      <button type="submit">Login</button>
+    </form>
+  </div>
+  
