@@ -6,6 +6,7 @@
   import { AuthService } from '../../service/authentication/auth.service';
 import { Subscription } from 'rxjs';
 import { NotificationService } from '../../service/notifications/notifications.service';
+import { ActivatedRoute } from '@angular/router';
   @Component({
     selector: 'app-messaging',
     standalone: true,
@@ -28,11 +29,15 @@ import { NotificationService } from '../../service/notifications/notifications.s
     private messageReadByRecipientSubscription: Subscription | null = null;
     ack: any;
     constructor(private messagingService: MessagingService, private cdr: ChangeDetectorRef,
-       private authService: AuthService, private notificationService: NotificationService) { }
+       private authService: AuthService, private notificationService: NotificationService, private route: ActivatedRoute) { }
 
 
     ngOnInit(): void {
-
+      this.route.queryParams.subscribe(params => {
+        this.recipientId = params['recipientId'];
+        // Fetch recipient's info and previous messages here
+      });
+      
       this.notificationService.listenForNewMessages().subscribe((newMessage: any) => {
         // Handle the new message event, such as displaying a notification
         console.log('New message received: give recipient pls in init', newMessage);

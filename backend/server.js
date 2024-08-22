@@ -18,6 +18,7 @@ const notificationsRoutes = require('./routes/match-logic/notifications.routes')
 const messageRoom = require('./routes/match-logic/messageRoom');
 const messages = require('./routes/match-logic/messages.routes');
 const Notification = require('./models/notifications.model');
+const partnerRoutes = require("./routes/user/partner.routes");
 const ObjectId = mongoose.Types.ObjectId;
 //websocket
 const http = require('http').createServer(app);
@@ -184,6 +185,7 @@ app.use('/notifications', notificationsRoutes);
 //everything about logins and register and all : 
 app.use('/message-rooms', messageRoom);
 app.use('/messages', messages);
+app.use('/partner', partnerRoutes);
 app.post('/login', async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -312,10 +314,10 @@ socket.on('sendMessage', async (data) => {
     const isInRoom = await isInChatRoom(chatId, recipientId);
     console.log(isInRoom, " is the recipient here? ");
     // Check if the match exists between sender and recipient
-    const match = await Match.findOne({ users: { $all: [senderId, recipientId] } });
+    let match = await Match.findOne({ users: { $all: [senderId, recipientId] } });
     if (!match) {
-      console.error('Match not found');
-      return;
+      match = new Match({ users: [senderId, recipientId] });
+      await match.save();
     }
 
     // Save the message in the database

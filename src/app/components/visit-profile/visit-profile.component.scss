@@ -1,0 +1,57 @@
+.profile-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .username {
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .age {
+    margin-top: 5px;
+    color: #666;
+  }
+  
+  .location {
+    margin-top: 5px;
+    color: #666;
+  }
+  
+  .profile-body {
+    padding: 10px 0;
+  }
+  
+  .section-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .bio {
+    margin-bottom: 20px;
+  }
+  
+  .sports-interests {
+    font-style: italic;
+  }
+  
+  /* Add more styling as needed */
+  

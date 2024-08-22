@@ -1,0 +1,19 @@
+<!-- view-partner-requests.component.html -->
+<div class="partner-request" *ngFor="let request of partnerRequests">
+  <div class="info">
+
+      <p class="sport">Sport: {{ request.sport }}</p>
+      <p class="dateTime">Date & heure: {{ request.dateTime }}</p>
+      <p class="location">Où ?: {{ request.location }}</p>
+      <p class="additional-info">Informations supplémentaires: {{ request.additionalInfo }}</p>
+      <div class="user-info">
+        <img [routerLink]="['/view-profile', request.userId]" [src]="'http://localhost:3000/user/' + request.profilePicture" alt="Profile Picture">
+        <p class="username">Annonce de : {{ request.username }}</p>
+      </div>
+  </div>
+  <div class="action">
+      <!-- Add button to view profile and discuss -->
+      <a [routerLink]="['/view-profile', request.userId]" class="view-profile">View Profile</a>
+      <button class="discuss" (click)="discuss(request.userId)">Discuss</button>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div *ngIf="userProfile" class="profile-container">
+    <div class="profile-header">
+      <img [src]="getImageUrl(userProfile.profilePicture)" alt="Profile Picture" class="profile-picture">
+      <h2 class="username">{{ userProfile.username }}</h2>
+      <p class="age">{{ userProfile.age }} years old</p>
+      <p class="location">{{ userProfile.location }}</p>
+    </div>
+    <div class="profile-body">
+      <h3 class="section-title">About Me</h3>
+      <p class="bio">{{ userProfile.bio }}</p>
+      <h3 class="section-title">Sports Interests</h3>
+      <p class="sports-interests">{{ userProfile.sportsInterests }}</p>
+      <!-- Add additional profile fields here -->
+    </div>
+</div>

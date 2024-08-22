@@ -23,6 +23,8 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { MessagingService } from './service/messaging.service';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
+import { ViewPartnerRequestComponent } from './components/view-partner-request/view-partner-request.component';
+import { PostPartnerRequestComponent } from './components/post-partner-request/post-partner-request.component';
 // Configure Socket.IO connection
 const config: SocketIoConfig = { url: 'http://localhost:3001/', options: {} };
 
@@ -55,7 +57,9 @@ const config: SocketIoConfig = { url: 'http://localhost:3001/', options: {} };
     SocketIoModule.forRoot(config),
     MessagingService,
     MatFormFieldModule,
-    MatInputModule 
+    MatInputModule ,
+    ViewPartnerRequestComponent,
+    PostPartnerRequestComponent
   ],
   exports: [ 
     AppComponent,

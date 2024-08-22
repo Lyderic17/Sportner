@@ -9,6 +9,9 @@ import { SwipingComponent } from './components/swiping/swiping.component';
 import { MatchedUserListComponent } from './components/matched-user-list/matched-user-list.component';
 import { MessageListComponent } from './components/message-list/message-list.component';
 import { MessagingComponent } from './components/messaging/messaging.component';
+import { ViewPartnerRequestComponent } from './components/view-partner-request/view-partner-request.component';
+import { PostPartnerRequestComponent } from './components/post-partner-request/post-partner-request.component';
+import { VisitProfileComponent } from './components/visit-profile/visit-profile.component';
 
 
 const routes: Routes = [
@@ -21,6 +24,9 @@ const routes: Routes = [
   { path: 'swiping', component:SwipingComponent},
   { path: 'message-rooms', component: MessagingComponent },
   { path: 'messages', component: MessageListComponent },
+  { path: 'partner-requests', component: ViewPartnerRequestComponent },
+  { path: 'partner-requests/new', component: PostPartnerRequestComponent }, // Add a route for posting partner requests
+  { path: 'view-profile/:userId', component: VisitProfileComponent},
 
 ];
 
