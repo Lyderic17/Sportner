@@ -9,7 +9,7 @@ import { MessagingService } from '../messaging.service';
 })
 export class NotificationService {
 
-  private apiUrl = 'http://localhost:3000/notifications'; // Update with your backend API URL
+  private apiUrl = 'http://localhost:6000/notifications'; // Update with your backend API URL
 
   constructor(private http: HttpClient, private messagingService: MessagingService) {
     console.log(this.listenForNewMessages(), " new message listen")

@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
 export class VisitProfileComponent {
   userId: string = "";
   userProfile: any; // Update with your user profile model
-  private apiUrl = 'http://localhost:3000/user';
+  private apiUrl = 'http://localhost:6000/user';
   constructor(
     private route: ActivatedRoute,
     private userProfileService: UserProfileService

@@ -7,7 +7,7 @@
       <p class="location">Où ?: {{ request.location }}</p>
       <p class="additional-info">Informations supplémentaires: {{ request.additionalInfo }}</p>
       <div class="user-info">
-        <img [routerLink]="['/view-profile', request.userId]" [src]="'http://localhost:3000/user/' + request.profilePicture" alt="Profile Picture">
+        <img [routerLink]="['/view-profile', request.userId]" [src]="'http://localhost:6000/user/' + request.profilePicture" alt="Profile Picture">
         <p class="username">Annonce de : {{ request.username }}</p>
       </div>
   </div>

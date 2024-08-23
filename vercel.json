@@ -1,0 +1,25 @@
+{
+    "version": 2,
+    "builds": [
+      { "src": "package.json", "use": "@vercel/static-build" },
+      { "src": "backend/index.js", "use": "@vercel/node" }
+    ],
+    "routes": [
+      {
+        "src": "/(auth|user|like|swiping|notifications|message-rooms|messages|partner)/.*",
+        "dest": "/backend/index.js"
+      },
+      {
+        "src": "/socket.io/.*",
+        "dest": "/backend/index.js"
+      },
+      {
+        "src": "/(.*\\.(js|css|png|jpg|ico|svg|woff|woff2|eot|ttf|otf))",
+        "dest": "/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/index.html"
+      }
+    ]
+  }

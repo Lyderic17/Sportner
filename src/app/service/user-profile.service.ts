@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserProfileService {
-  private apiUrl = 'http://localhost:3000/user'; // Update with your backend API URL
-  private apiUrlSwipe = 'http://localhost:3000/swiping'; // Update with your backend API URL
-  private apiUrlLike = 'http://localhost:3000/like';
+  private apiUrl = 'http://localhost:6000/user'; // Update with your backend API URL
+  private apiUrlSwipe = 'http://localhost:6000/swiping'; // Update with your backend API URL
+  private apiUrlLike = 'http://localhost:6000/like';
   constructor(private http: HttpClient) { }
 
   // Method to create a new user profile

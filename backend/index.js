@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
-const port = 3000;
+const port = 6000;
 const authRoutes = require('./routes/authentication/auth.routes');
 const userRoutes = require('./routes/user/userProfile.routes');
 const User = require('./models/user.model');
@@ -24,7 +24,7 @@ const ObjectId = mongoose.Types.ObjectId;
 const http = require('http').createServer(app);
 const io = require('socket.io')(http, {
   cors: {
-    origin: 'http://localhost:4200',
+    origin: '*',
     methods: ['GET', 'POST'],
     allowedHeaders: ['my-custom-header'],
     credentials: true
@@ -33,14 +33,33 @@ const io = require('socket.io')(http, {
 
 // Import player routes
 const corsOptions = {
-    origin: 'http://localhost:4200', // Remplacez ceci par l'URL de votre application Angular en production
+    origin: '*', // Remplacez ceci par l'URL de votre application Angular en production
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true, // Autoriser l'inclusion des cookies dans les requêtes
   };
 
+  //vercel CORS
+  app.use((req, res, next) => {
+    const allowedOrigins = ['http://localhost:6000', 'http://localhost:4200', ];
+    const origin = req.headers.origin;
+    if (allowedOrigins.includes(origin)) {
+      res.setHeader('Access-Control-Allow-Origin', origin);
+    } else {
+      res.setHeader('Access-Control-Allow-Origin', '*');
+    }
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+  
+    if (req.method === 'OPTIONS') {
+      return res.sendStatus(200);
+    }
+    next();
+  });
+  //end vercel cors
   // Enable CORS middleware
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
   res.setHeader('Access-Control-Allow-Credentials', true);
@@ -368,3 +387,5 @@ const socketPort = 3001; // Choose a different port for Socket.IO server
 http.listen(socketPort, () => {
   console.log(`WebSocket Server is running on port ${socketPort}`);
 });
+
+module.exports = app;

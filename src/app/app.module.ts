@@ -16,7 +16,7 @@ import { faCoffee, fas } from '@fortawesome/free-solid-svg-icons';
 import {MatSelectModule} from '@angular/material/select';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { NgxFileDropModule } from 'ngx-file-drop';
-import { AvatarModule } from 'ngx-avatar';
+//import { AvatarModule } from 'ngx-avatar';
 import { SwipingComponent } from './components/swiping/swiping.component';
 import { MessagingComponent } from './components/messaging/messaging.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
@@ -51,7 +51,7 @@ const config: SocketIoConfig = { url: 'http://localhost:3001/', options: {} };
     NgxChartsModule,
     MatSelectModule,
     NgxFileDropModule,
-    AvatarModule,
+    //AvatarModule,
     SwipingComponent,
     MessagingComponent,
     SocketIoModule.forRoot(config),
@@ -67,7 +67,7 @@ const config: SocketIoConfig = { url: 'http://localhost:3001/', options: {} };
     RouterModule,
     HttpClientModule,
     NgxFileDropModule,
-    AvatarModule,
+    //AvatarModule,
     
   ],
   bootstrap:[AppComponent],

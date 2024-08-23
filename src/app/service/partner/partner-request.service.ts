@@ -9,7 +9,7 @@ import { PartnerRequest } from '../models/partner-request.model';
   providedIn: 'root'
 })
 export class PartnerRequestService {
-private apiUrl = 'http://localhost:3000/partner';
+private apiUrl = 'http://localhost:6000/partner';
 
   constructor(private http: HttpClient) { }
 

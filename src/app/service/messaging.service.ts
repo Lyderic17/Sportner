@@ -7,9 +7,9 @@ import { AuthService } from './authentication/auth.service';
   providedIn: 'root'
 })
 export class MessagingService {
-  private apiUrl = 'http://localhost:3000/messages';//was message-rooms previously.
-  private apiUrlUsers = 'http://localhost:3000/user'; // to get the user profile infos everywhere, cool.
-  private apiUrlRoom = 'http://localhost:3000/message-rooms';
+  private apiUrl = 'http://localhost:6000/messages';//was message-rooms previously.
+  private apiUrlUsers = 'http://localhost:6000/user'; // to get the user profile infos everywhere, cool.
+  private apiUrlRoom = 'http://localhost:6000/message-rooms';
   public socket: Socket;
   private recipientId: string = '';
 

@@ -25,7 +25,7 @@ export class UserProfileComponent implements OnInit {
   selectedLevel: string = '';
   filteredSports: Observable<string[]> | null = null;
   backendUrl: string = '';
-  private apiUrl = 'http://localhost:3000/user';
+  private apiUrl = 'http://localhost:6000/user';
 
   sports: string[] = ['Football', 'Basketball', 'Tennis', 'Golf', 'Cricket', 'Baseball', 'Swimming', 'Cycling', 'Running', 'Hiking'];
   levels: string[] = ['Beginner', 'Intermediate', 'Advanced'];

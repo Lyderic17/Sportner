@@ -1,5 +1,5 @@
 const Notification = require('../../models/notifications.model');
-const { io } = require('../../server');
+const { io } = require('../../index');
 
 
 async function getNotifications(req, res){
