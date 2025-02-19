@@ -9,12 +9,8 @@ Sportner is a social networking application designed to connect sports enthusias
 ## Table of Contents
 
 - [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
+
 - [API Endpoints](#api-endpoints)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
