@@ -23,6 +23,11 @@ Sportner is a social networking application designed to connect sports enthusias
 
 - ## API Endpoints
 
+### Authentication
+
+- `POST /auth/register` - Register a new user
+- `POST /auth/login` - Authenticate a user and return a JWT token
+
 ### User Profile
 
 - `GET /user/:userId` - Fetch user profile
@@ -30,8 +35,31 @@ Sportner is a social networking application designed to connect sports enthusias
 - `DELETE /user/profile` - Delete user profile
 - `GET /user/:userId/matched-users` - Fetch matched users
 
-### Messaging
+### Swiping
+
+- `POST /swiping/like` - Like a user
+- `POST /swiping/dislike` - Dislike a user
+
+### Notifications
+
+- `GET /notifications/:userId` - Fetch notifications for a user
+
+### Messages
 
 - `POST /messages` - Send a message
 - `GET /messages/:chatId` - Fetch previous messages
 - `PUT /messages/:chatId/read` - Mark messages as read
+
+### Partner
+
+- `GET /partner/requests` - Fetch partner requests
+- `POST /partner/accept` - Accept a partner request
+- `POST /partner/decline` - Decline a partner request
+
+### Likes
+
+- `GET /like/:userId` - Fetch likes for a user
+
+### Matches
+
+- `GET /match/:userId` - Fetch matches for a user
